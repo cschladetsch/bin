@@ -1,0 +1,70 @@
+[user]
+	name = Christian Schladetsch
+	email = christian.schladetsch@gmail.com
+[winUpdater]
+	recentlySeenVersion = 2.19.1.windows.1
+[core]
+	safecrlf = false
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+# Use meld - too slow to load, and leaves error messages
+#[diff]
+#    tool = meld
+#[difftool]
+#    prompt = false
+#[difftool "meld"]
+#    cmd = meld "$LOCAL" "$REMOTE"
+
+# kdiff3 loads a bit fast, but is pretty ugly
+[merge]
+	tool = C:\\Program Files\\WinMerge\\WinMergeU.exe
+[mergetool "kdiff3"]
+    path = C:/Program Files/KDiff3/kdiff3.exe
+    trustExitCode = false
+
+[diff]
+    tool = kdiff3
+[difftool "kdiff3"]
+    path = C:/Program Files/KDiff3/kdiff3.exe
+    trustExitCode = false
+
+[alias]
+    df = difftool -y
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    ld = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[color]  
+    diff = auto  
+    status = auto  
+    branch = auto 
+    diff = auto  
+    status = auto  
+    branch = auto 
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[diff-so-fancy]
+	markEmptyLines = false
+	changeHunkIndicators = false
+[gui]
+	recentrepo = C:/Users/chris/src/KAI
+[mergetool "myfavtool"]
+	cmd = myfavtool_executable
