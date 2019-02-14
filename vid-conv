@@ -1,0 +1,34 @@
+#!/bin/sh
+
+input=$1
+output=${input%.mp4}-conv.mp4
+bitrate=30
+
+# allow override default bitrate factor from 30
+if [ ! -z "$2" ]; then 
+    bitrate=$2
+fi
+
+# -y to always overwrite
+cmd='ffmpeg -y -i $input -vcodec libx264 -crf $bitrate $output'
+
+echo $cmd
+echo $output
+echo
+echo ======================\>
+echo
+echo $cmd
+echo
+echo ======================\>
+echo
+eval $cmd
+
+echo
+echo ========\> RESULTS
+echo
+
+#ls -lh1 $input $output
+du -h --block-size=M $input $output
+
+
+
